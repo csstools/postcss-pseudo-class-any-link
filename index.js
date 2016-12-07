@@ -3,9 +3,8 @@ const postcss = require('postcss');
 const parser = require('postcss-selector-parser');
 
 // plugin
-module.exports = postcss.plugin('postcss-pseudo-class-any-link', ({
-	prefix = ''
-}) => {
+module.exports = postcss.plugin('postcss-pseudo-class-any-link', (opts = {}) => {
+	const {prefix} = Object.assign({prefix: ''}, opts);
 	// dashed prefix
 	const dashedPrefix = prefix ? '-' + prefix + '-' : '';
 
